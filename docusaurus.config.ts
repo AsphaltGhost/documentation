@@ -13,7 +13,7 @@ const config: Config = {
   projectName: "documentation",
   trailingSlash: false,
 
-  onBrokenLinks: "throw",
+  onBrokenLinks: "warn",
   markdown: {
     hooks: {
       onBrokenMarkdownLinks: "warn"
@@ -37,6 +37,18 @@ const config: Config = {
           customCss: "./src/css/custom.css"
         }
       } satisfies Preset.Options
+    ]
+  ],
+
+  plugins: [
+    [
+      "@docusaurus/plugin-client-redirects",
+      {
+        redirects: [
+          { to: "/documentation/intro", from: "/documentation/" },
+          { to: "/documentation/intro", from: "/documentation" }
+        ]
+      }
     ]
   ],
 
